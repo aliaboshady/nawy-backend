@@ -61,7 +61,19 @@ async function executeQuery(query: string, params?: Record<string, any>) {
 // Define a route to fetch all apartments data
 app.get('/apartment', async (req: Request, res: Response) => {
   try {
-    const result = await executeQuery('SELECT * FROM Apartment');
+    const result = await executeQuery(` 
+      WITH RankedImages AS (
+        SELECT
+          ImageID,
+          ApartmentID,
+          Image,
+          ROW_NUMBER() OVER (PARTITION BY ApartmentID ORDER BY ImageID) AS RowNum
+        FROM Image
+      )
+      SELECT Apartment.*, RankedImages.Image
+      FROM Apartment
+      LEFT OUTER JOIN RankedImages ON Apartment.ApartmentID = RankedImages.ApartmentID
+      WHERE RowNum = 1 OR RowNum IS NULL;`);
     res.json(result);
   } catch (err) {
     res.status(500).send('Error in fetching data');
@@ -73,7 +85,18 @@ app.get('/apartment/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const result = await executeQuery(
-      `SELECT * FROM Apartment WHERE ApartmentID = ${id} `
+      `WITH RankedImages AS (
+        SELECT
+          ImageID,
+          ApartmentID,
+          Image,
+          ROW_NUMBER() OVER (PARTITION BY ApartmentID ORDER BY ImageID) AS RowNum
+        FROM Image
+      )
+      SELECT Apartment.*, RankedImages.Image
+      FROM Apartment
+      LEFT OUTER JOIN RankedImages ON Apartment.ApartmentID = RankedImages.ApartmentID
+      WHERE (RowNum = 1 OR RowNum IS NULL) AND Apartment.ApartmentID = ${id};`
     );
     res.json(result);
   } catch (err) {
