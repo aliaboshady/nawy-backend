@@ -1,4 +1,3 @@
-    <!-- ABOUT THE PROJECT -->
   ## About The Project
   This is an Apartment listing webapp that's made using Node.JS, Express, Typescript, Next.js, and SQL Server. This is the website backend repo. And here's the [Frontend](https://github.com/aliaboshady/nawy-frontend-web) repo.
   
@@ -9,7 +8,6 @@
   2. Created a server with 3 API endpoints to get all apartments, get 1 apartment by ID, and create a new apartment.
   3. Built a website frontend to display the data.
   
-  <!-- GETTING STARTED -->
   ## Getting Started
   
   In this section, I'll explain how to set up your project to run the database, backend server, and frontend website locally.
