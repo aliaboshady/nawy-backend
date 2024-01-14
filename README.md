@@ -64,3 +64,19 @@
   ```sh
   npm run dev
   ```
+
+  ## Usage
+  GET - All Apartments
+  ```sh
+  http://localhost:5000/apartment
+  ```
+
+  GET - One Apartment by ID
+  ```sh
+  http://localhost:5000/apartment/ID
+  ```
+
+  POST - Create a new Apartment
+  ```sh
+  http://localhost:5000/apartment/create
+  ```
