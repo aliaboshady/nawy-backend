@@ -1,5 +1,6 @@
 const express = require('express');
 const sql = require('mssql');
+const cors = require('cors');
 const ConnectionPool = sql.ConnectionPool;
 import { Request, Response } from 'express';
 
@@ -7,6 +8,7 @@ import { Request, Response } from 'express';
 const app = express();
 const API_PORT = process.env.PORT || 5000;
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // SQL Server configuration
