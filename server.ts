@@ -105,7 +105,7 @@ app.get('/apartment/:id', async (req: Request, res: Response) => {
 });
 
 // Define a route to create a new apartment
-app.post('/apartment/create', async (req: Request, res: Response) => {
+app.post('/apartment', async (req: Request, res: Response) => {
   try {
     const {
       Title,
