@@ -1,16 +1,17 @@
   ## About The Project
-  This is an Apartment listing webapp that's made using Node.JS, Express, Typescript, Next.js, and SQL Server. This is the website backend repo. And here's the [Frontend](https://github.com/aliaboshady/nawy-frontend-web) repo.
+  This is an Apartment listing webapp that's made using Node.JS, Express, Typescript, Next.js, and SQL Server. This is the website backend repo. And here's the [Frontend](https://github.com/aliaboshady/nawy-frontend-web) repo. There's also a phone app made using React Native / Expo. Here is the [App](https://github.com/aliaboshady/nawy-frontend-app) repo.
   
-  In this project, I've learned so much in so little time. I'm very proud to have learned Node.JS, Express, Typescript, and Next.js in as little as 2 days.
+  In this project, I've learned so much in so little time. I'm very proud to have learned Node.JS, Express, Typescript, Next.js, and React Native in as little as 2 days.
   
   ## Completed Features
   1. Built a database to store apartments info.
   2. Created a server with 3 API endpoints to get all apartments, get 1 apartment by ID, and create a new apartment.
   3. Built a website frontend to display the data.
+  4. Built a phone app frontend to display the data.
   
   ## Getting Started
   
-  In this section, I'll explain how to set up your project to run the database, backend server, and frontend website locally.
+  In this section, I'll explain how to set up your project to run the database, backend server, and frontend website and app locally.
 
   ### SQL Server Setup
   1. Click Start and type Computer Managment and open it.
@@ -48,21 +49,25 @@
   8. If it asks you to create a new password, just write the same password, and press OK.
   
   ### Projects Installation
-  1. Clone the frontend and the backend repos.
-  2. Open them both in VSCode.
-  3. For both projects, open a new terminal and run
+  1. Clone the web frontend, app frontend, and the backend repos.
+  2. Open them all in VSCode.
+  3. For all projects, open a new terminal and run
   ```sh
   npm i
   ```
 
-  ## Start Project
+  ## Start Projects
   To start the project, we need to run the backend server first by running this in the backend project's terminal
   ```sh
-  node server.ts
+  nodemon server.ts
   ```
-  Then in the frontend project's termial, run
+  Then in the web frontend project's termial, run
   ```sh
   npm run dev
+  ```
+  Then in the app frontend project's termial, run
+  ```sh
+  npm start
   ```
 
   ## Usage
@@ -73,10 +78,10 @@
 
   GET - One Apartment by ID
   ```sh
-  http://localhost:5000/apartment/ID
+  http://localhost:5000/apartment/:ID
   ```
 
   POST - Create a new Apartment
   ```sh
-  http://localhost:5000/apartment/create
+  http://localhost:5000/apartment
   ```
