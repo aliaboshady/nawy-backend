@@ -104,6 +104,20 @@ app.get('/apartment/:id', async (req: Request, res: Response) => {
   }
 });
 
+// Define a route to fetch all apartment's images using an ID
+app.get('/apartment/images/:id', async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const result = await executeQuery(
+      `SELECT * FROM Image
+      WHERE ApartmentID = ${id};`
+    );
+    res.json(result);
+  } catch (err) {
+    res.status(500).send('Error in fetching data');
+  }
+});
+
 // Define a route to create a new apartment
 app.post('/apartment', async (req: Request, res: Response) => {
   try {
